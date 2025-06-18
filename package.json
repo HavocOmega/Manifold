@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@rbxts/hotfusion": "^0.3.0-hotfusion.1",
+    "@rbxts/services": "^1.5.5",
     "@znotfireman/fusion": "^0.3.0"
   }
 }
