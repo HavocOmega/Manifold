@@ -1,3 +1,6 @@
+/* --------------------------------- Imports -------------------------------- */
+import Fusion from "@rbxts/hotfusion";
+
 /* ------------------------------- References ------------------------------- */
-const toolbar: PluginToolbar = plugin.CreateToolbar("Manifold");
-const settings: PluginToolbarButton = toolbar.CreateButton("Settings", "Open the settings menu", "");
+const PluginToolbar: PluginToolbar = plugin.CreateToolbar("Manifold");
+const SettingsButton: PluginToolbarButton = PluginToolbar.CreateButton("Settings", "Open the settings menu", "");

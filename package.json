@@ -32,6 +32,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@rbxts/hotfusion": "^0.3.0-hotfusion.1"
+    "@rbxts/hotfusion": "^0.3.0-hotfusion.1",
+    "@znotfireman/fusion": "^0.3.0"
   }
 }
