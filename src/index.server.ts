@@ -1,11 +1,14 @@
 /* --------------------------------- Imports -------------------------------- */
-import { CoreGui } from "@rbxts/services";
-import React, { StrictMode } from "@rbxts/react";
-import { createPortal, createRoot } from "@rbxts/react-roblox";
 
 /* ------------------------------- References ------------------------------- */
 const PluginToolbar = plugin.CreateToolbar("Manifold");
 
-/* --------------------------------- Events --------------------------------- */
+/* -------------------------------- Functions ------------------------------- */
+function Initialize() {
+	const OpenAllMenus = plugin.CreatePluginAction("Manifold", "Open All Menus", "Open up all menus to scroll through");
+}
 
 /* ----------------------------- Initialization ----------------------------- */
+if (plugin) {
+	Initialize();
+}
