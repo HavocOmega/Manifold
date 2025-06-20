@@ -4,7 +4,7 @@
 		"allowSyntheticDefaultImports": true,
 		"downlevelIteration": true,
 		"jsx": "react",
-		"jsxFactory": "React.createElement",
+		"jsxFactory": "NewJSX",
 		"jsxFragmentFactory": "React.Fragment",
 		"module": "commonjs",
 		"moduleResolution": "Node",

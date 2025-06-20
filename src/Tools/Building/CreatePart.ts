@@ -1,6 +1,13 @@
 /* --------------------------------- Imports -------------------------------- */
 import { UserInputService, Workspace } from "@rbxts/services";
 
+/* -------------------------------- Constants ------------------------------- */
+const ScreenRayParameters = new RaycastParams();
+ScreenRayParameters.FilterDescendantsInstances = Workspace.CurrentCamera ? [Workspace.CurrentCamera] : [];
+ScreenRayParameters.FilterType = Enum.RaycastFilterType.Exclude;
+ScreenRayParameters.IgnoreWater = true;
+
+/* --------------------------------- Export --------------------------------- */
 export = {
     Name: "Create Part",
     Description: "Creates a new part",
@@ -15,17 +22,12 @@ export = {
             return;
         }
         
-        let ScreenRay = Camera.ScreenPointToRay(MouseScreenPosition.X, MouseScreenPosition.Y, 1000);
-        let ScreenRayParameters = new RaycastParams();
-        ScreenRayParameters.FilterDescendantsInstances = [Camera];
-        ScreenRayParameters.FilterType = Enum.RaycastFilterType.Exclude;
-        ScreenRayParameters.IgnoreWater = true;
-
-        let RaycastResult = Workspace.Raycast(ScreenRay.Origin, ScreenRay.Direction.mul(1000), ScreenRayParameters);
+        let ScreenRay = Camera.ScreenPointToRay(MouseScreenPosition.X, MouseScreenPosition.Y, 1);
+        let MouseRay = Workspace.Raycast(ScreenRay.Origin, ScreenRay.Direction.mul(1000), ScreenRayParameters);
 
         let Part = new Instance("Part");
         Part.Size = new Vector3(4, 1, 4);
-        Part.Position = RaycastResult ? RaycastResult.Position : ScreenRay.Origin.add(ScreenRay.Direction.mul(10));
+        Part.Position = MouseRay ? MouseRay.Position : ScreenRay.Origin.add(ScreenRay.Direction.mul(10));
         Part.Anchored = true;
         Part.CanCollide = true;
         Part.Parent = Context || Workspace;
