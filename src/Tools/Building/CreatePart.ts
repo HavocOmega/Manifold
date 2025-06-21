@@ -12,8 +12,8 @@ export = {
 	Name: "CreatePart",
 	Description: "Creates a new part in the current building.",
 	Icon: "rbxassetid://1557174355",
-	Predicate: (context: Instance) => context.IsA("Model") || context.IsA("Folder"),
-	Execute: (context: Instance) => {
+	Predicate: (Context: Instance) => Context.IsA("Model") || Context.IsA("Folder"),
+	Execute: (Context: Instance) => {
 		const Camera = Workspace.CurrentCamera;
 		const MouseLocation: Vector2 = UserInputService.GetMouseLocation();
 		const ScreenRay = Camera?.ScreenPointToRay(MouseLocation.X, MouseLocation.Y, 1);
@@ -28,6 +28,6 @@ export = {
 		Part.Name = "Part";
 		Part.Size = new Vector3(4, 1, 4);
 		Part.Position = MouseRay ? MouseRay.Position : ScreenRay.Origin.add(ScreenRay.Direction.mul(10));
-		Part.Parent = context;
+		Part.Parent = Context;
 	},
 };

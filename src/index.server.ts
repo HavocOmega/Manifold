@@ -1,3 +1,5 @@
+import { MenuContainer } from "Components/MenuContainer";
+
 /* ---------------------------------- Paths --------------------------------- */
 const ToolsFolder: Folder = script.FindFirstChild("Tools") as Folder;
 
@@ -24,7 +26,6 @@ function Initialize() {
 
 			for (const Tool of Category.GetChildren()) {
 				if (Tool.IsA("ModuleScript")) {
-					print(Tool);
 				}
 			}
 		}
