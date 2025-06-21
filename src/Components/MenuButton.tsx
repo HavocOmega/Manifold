@@ -2,7 +2,7 @@
 /* --------------------------------- Imports -------------------------------- */
 import React from "@rbxts/react";
 
-/* -------------------------------- Interface ------------------------------- */
+/* -------------------------------- Interface ------------------------------- */ 
 interface MenuButtonProps {
 	Name: string;
 	Icon: string;
@@ -19,7 +19,7 @@ export function MenuButton(Props: MenuButtonProps): React.Element {
 			BackgroundColor3={Color3.fromRGB(40, 40, 40)}
 			BackgroundTransparency={0.25}
 			key={"MenuButton"}
-			Position={UDim2.fromScale(0.5, 0.491047)}
+			Position={UDim2.fromScale(0.5, 0.5)}
 			Size={UDim2.fromScale(0.1, 0.0440771)}
             Event = {{
                 InputBegan: (_, InputObject: InputObject) => {

@@ -6,24 +6,28 @@ const PluginToolbar = plugin.CreateToolbar("Manifold");
 
 /* -------------------------------- Functions ------------------------------- */
 function Initialize() {
-	const GlobalPluginAction = plugin.CreatePluginAction(
-		"Manifold",
-		"Open All Menus",
-		"Open up all menus to scroll through",
-	);
-
-	const Categories = ToolsFolder.GetChildren();
-
-	for (const Category of Categories) {
-		const CategoryMenuAction = plugin.CreatePluginAction(
-			"Manifold" + Category.Name,
-			"Open " + Category.Name + " Menu",
-			"Open the " + Category.Name,
+	return new Promise<void>((resolve) => {
+		const GlobalPluginAction = plugin.CreatePluginAction(
+			"Manifold",
+			"Open All Menus",
+			"Open up all menus to scroll through",
 		);
-	}
+
+		const Categories = ToolsFolder.GetChildren();
+
+		for (const Category of Categories) {
+			const CategoryMenuAction = plugin.CreatePluginAction(
+				"Manifold" + Category.Name,
+				"Open " + Category.Name + " Menu",
+				"Open the " + Category.Name,
+			);
+		}
+	});
 }
 
 /* ----------------------------- Initialization ----------------------------- */
 if (plugin) {
-	Initialize();
+	Initialize().andThen(() => {
+		print();
+	});
 }
