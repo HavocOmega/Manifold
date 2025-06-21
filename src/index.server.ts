@@ -21,17 +21,25 @@ function Initialize() {
 				"Open " + Category.Name + " Menu",
 				"Open the " + Category.Name,
 			);
+
+			for (const Tool of Category.GetChildren()) {
+				if (Tool.IsA("ModuleScript")) {
+					print(Tool);
+				}
+			}
 		}
+
+		resolve();
 	});
 }
 
 /* ----------------------------- Initialization ----------------------------- */
 if (plugin) {
 	Initialize()
+		.catch((Error: undefined) => {
+			print("[Manifold] Error initializing plugin:", Error);
+		})
 		.andThen(() => {
 			print("[Manifold] Plugin initialized successfully!");
-		})
-		.catch((error) => {
-			print("[Manifold] Plugin initialization failed: " + error);
 		});
 }
