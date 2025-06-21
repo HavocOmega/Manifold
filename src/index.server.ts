@@ -27,7 +27,11 @@ function Initialize() {
 
 /* ----------------------------- Initialization ----------------------------- */
 if (plugin) {
-	Initialize().andThen(() => {
-		print();
-	});
+	Initialize()
+		.andThen(() => {
+			print("[Manifold] Plugin initialized successfully!");
+		})
+		.catch((error) => {
+			print("[Manifold] Plugin initialization failed: " + error);
+		});
 }
