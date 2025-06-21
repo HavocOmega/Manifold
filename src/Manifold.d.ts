@@ -1,3 +1,0 @@
-interface Manifold {
-	Tools: Folder;
-}
