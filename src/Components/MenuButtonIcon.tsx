@@ -24,7 +24,7 @@ function getYSize(Container: Frame | ImageLabel | TextLabel): number {
 }
 
 export function MenuButtonIcon(Props: ComponentProps): React.Element {
-	const ySize = getYSize(Props.Container);
+	const ySize = getYSize(Props.Container); // TODO: Write a better way to calculate X size based on container padding and size for both X and Y
 
 	return (
 		<imagelabel
@@ -33,7 +33,7 @@ export function MenuButtonIcon(Props: ComponentProps): React.Element {
 			Image={Props.Icon}
 			key={"MenuButtonIcon"}
 			Position={UDim2.fromScale(0, 0.5)}
-			Size={new UDim2(0, ySize, 1, 0)}
+			Size={new UDim2(0, ySize, 1, 0)} // TODO: Calulate size in scale of container than offest with UIPadding considerations
 		/>
 	);
 }
