@@ -1,3 +1,4 @@
+import { Janitor } from "@rbxts/janitor";
 import { MenuContainer } from "Components/MenuContainer";
 
 /* ---------------------------------- Paths --------------------------------- */
@@ -5,6 +6,9 @@ const ToolsFolder: Folder = script.FindFirstChild("Tools") as Folder;
 
 /* ------------------------------- References ------------------------------- */
 const PluginToolbar = plugin.CreateToolbar("Manifold");
+const _Janitor = new Janitor();
+
+/* --------------------------------- Tables --------------------------------- */
 
 /* -------------------------------- Functions ------------------------------- */
 function Initialize() {
@@ -26,9 +30,15 @@ function Initialize() {
 
 			for (const Tool of Category.GetChildren()) {
 				if (Tool.IsA("ModuleScript")) {
+					print("wahteves");
 				}
 			}
 		}
+
+		_Janitor.Add(
+			GlobalPluginAction.Triggered.Connect(() => {}),
+			"Disconnect",
+		);
 
 		resolve();
 	});
